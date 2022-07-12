@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>ShopOnLine</title>
+<!-- TemplateEndEditable -->
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+	<header>
+		<div id="logo">
+			<a href="#"><img src="../images/logo (2).png" width="287" height="132"></a>
+		</div>
+	</header>
+	<nav>
+		<div id="subnav">
+			<ul>
+			<li><a href="../Trangchu.html">TRANG CHỦ</a></li>
+			<li><a href="../gioithieu.html"> GIỚI THIỆU</a></li>
+			<li><a href="../CTSPCho.html">DOG-CÚN</a></li>
+			<li><a href="../CTSPMeo.html">CAT-MÈO</a></li>
+			<li><a href="../lienhe.html">LIÊN HỆ</a></li>
+			<li><a href="../DangNhap.html">TÀI KHOẢN</a></li>
+			</ul>
+		
+			<div> 
+				<input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên cần tìm.......">
+				<input type="submit" value="Tìm" title="Tìm">
+			</div>
+		</div>
+	</nav>
+	
+	<aside id="slide">
+		<div class="slide-container">
+			<div class="slide-stage">
+				<marquee direction="right" scrollamount="8" scrolldelay="100" onMouseMove="stop()" onMouseOut="start()">
+					<div class="slile-image"><a href="#"><img src="../images/02.jpg"></a></div>
+					<div class="slile-image"><a href="#"><img src="../images/07.jpg"></a></div>
+					<div class="slile-image"><a href="#"><img src="../images/09.jpg"></a></div>
+					
+				</marquee>
+			</div>
+		</div>
+	</aside>
+	
+	<div id="body">
+			<article>
+			<aside id="left">
+				<div>
+						<p><b> Thực Phẩm Cho Chó </b></p>
+						<ul type="square">
+							<li><a href="#"> Sữa </a></li>
+							<li><a href="#"> Patê </a></li>
+							<li><a href="#"> Thức Ăn Hạt Khô </a></li>
+							<li><a href="#"> Xương Gặm </a></li>
+							<li><a href="#"> Bánh Thưởng </a></li>
+							<li><a href="#"> Vitamin và Dinh Dưỡng </a></li>
+						</ul>
+			
+					<p><b> Thực Phẩm Cho Mèo </b></p>
+					<ul type="square">
+						<li><a href="#"> Sữa  </a></li>
+						<li><a href="#"> Patê </a></li>
+						<li><a href="#"> Thức Ăn Hạt Khô </a></li>
+						<li><a href="#"> Snack</a></li>
+						<li><a href="#"> Vitamin và Dinh Dưỡng </a></li>
+						<li><a href="#"> Thực Phẩm Chức Năng </a></li>
+					</ul>
+				</div>
+			
+				<div class="calendar">
+                    <script language="javascript">
+
+                        monthnames = new Array("January", "Februrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+                        var linkcount = 0;
+
+                        function addlink(month, day, href) {
+                            var entry = new Array(3);
+                            entry[0] = month;
+                            entry[1] = day;
+                            entry[2] = href;
+                            this[linkcount++] = entry;
+                        }
+                        Array.prototype.addlink = addlink;
+                        linkdays = new Array();
+                        monthdays = new Array(12);
+                        monthdays[0] = 31;
+                        monthdays[1] = 28;
+                        monthdays[2] = 31;
+                        monthdays[3] = 30;
+                        monthdays[4] = 31;
+                        monthdays[5] = 30;
+                        monthdays[6] = 31;
+                        monthdays[7] = 31;
+                        monthdays[8] = 30;
+                        monthdays[9] = 31;
+                        monthdays[10] = 30;
+                        monthdays[11] = 31;
+                        todayDate = new Date();
+                        thisday = todayDate.getDay();
+                        thismonth = todayDate.getMonth();
+                        thisdate = todayDate.getDate();
+                        thisyear = todayDate.getYear();
+                        thisyear = thisyear % 100;
+                        thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+                        if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) || (thisyear % 400 == 0)) monthdays[1]++;
+                        startspaces = thisdate;
+                        while (startspaces > 7) startspaces -= 7;
+                        startspaces = thisday - startspaces + 1;
+                        if (startspaces < 0) startspaces += 7;
+
+                        document.write("<table border='1'>");
+                        document.write("<tr><td colspan=7 class='monthyear'>" + monthnames[thismonth] + " " + thisyear + "</td></tr>");
+                        document.write("<tr class='weektitle'>");
+                        document.write("<td align= center>Sun</td>");
+                        document.write("<td align= center>Mon</td>");
+                        document.write("<td align= center>Tus</td>");
+                        document.write("<td align= center>Wed</td>");
+                        document.write("<td align= center>Thu</td>");
+                        document.write("<td align= center>Fri</td>");
+                        document.write("<td align= center>Sat</td>");
+                        document.write("</tr>");
+                        document.write("<tr>");
+                        for (s = 0; s < startspaces; s++) {
+                            document.write("<td> </td>");
+                        }
+                        count = 1;
+                        while (count <= monthdays[thismonth]) {
+                            for (b = startspaces; b < 7; b++) {
+                                linktrue = false;
+                                document.write("<td class='weekday'>");
+                                for (c = 0; c < linkdays.length; c++) {
+                                    if (linkdays[c] != null) {
+                                        if ((linkdays[c][0] == thismonth + 1) && (linkdays[c][1] == count)) {
+                                            document.write("<a href=\"" + linkdays[c][2] + "\">");
+                                            linktrue = true;
+                                        }
+                                    }
+                                }
+                                if (count == thisdate) {
+                                    document.write("<font color='FF0000'><strong>");
+                                }
+                                if (count <= monthdays[thismonth]) {
+                                    document.write(count);
+                                }
+                                else {
+                                    document.write(" ");
+                                }
+                                if (count == thisdate) {
+                                    document.write("</strong></font>");
+                                }
+                                if (linktrue)
+                                    document.write("</a>");
+                                document.write("</td>");
+                                count++;
+                            }
+                            document.write("</tr>");
+                            document.write("<tr>");
+                            startspaces = 0;
+                        }
+                        document.write("</table>");
+
+                    </script>
+                </div>
+			</aside>
+				
+			<!-- TemplateBeginEditable name="content" -->
+			<section>
+			  <p> SẢN PHẨM </p>
+			  <div class="da">
+			    <p class="tenda"><a href="../CViRau.html">Bánh thưởng cho chó vị rau chân vịt</a></p>
+			    <img class="hinhda" src="../images/01.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">65,000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png" ></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../CTSPCho.html">Bánh thưởng cho chó vị rau tươi </a></p>
+			    <img class="hinhda" src="../images/02.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">55.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../MViTao.html">Súp thưởng cho mèo vị cá ngừ sốt táo</a></p>
+			    <img class="hinhda" src="../images/03.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">50.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../MCaNgu.html"> Bánh thưởng cho mèo vị thịt gà cá ngừ nướng </a></p>
+			    <img class="hinhda" src="../images/05.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">75.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../CTSPMeo.html"> Bánh thưởng cho mèo Anh lông ngắn </a></p>
+			    <img class="hinhda" src="../images/04.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">56.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../SuaC.html">Sữa tươi cho chó con ít béo</a></p>
+			    <img class="hinhda" src="../images/06.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">55.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../CTSPCho.html"> Xương Gặm vị bò cho chó lớn</a></p>
+			    <img class="hinhda" src="../images/08.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">56.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../pateM.html">Patê cho mèo vị thịt gà và bí ngòi</a></p>
+			    <img class="hinhda" src="../images/12.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">55.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+			  <div class="da">
+			    <p class="tenda"><a href="../gelddM.html">Gel dinh dưỡng cho mèo</a></p>
+			    <img class="hinhda" src="../images/13.jpg">
+			    <p class="dongia">Đơn giá:<span class="gia">85.000 VNĐ</span></p>
+			    <a href="#"><img class="nutchonmua" src="../images/nutdatmua.png"></a> </div>
+		    </section>
+			<!-- TemplateEndEditable -->
+<aside id="right">
+		<div>
+				<p><b>SẢN PHẨM BÁN CHẠY </b></p>
+				<marquee direction="up" scrollamount="3" scrolldelay="100" onMouseMove="stop()" onMouseOut="start()">
+					<p><a href="#"><img src="../images/10.jpg" width="80" height="100"> Bột dinh dưỡng canxi cho chó mèo </a></p>
+					<p><a href="#"><img src="../images/07.jpg" width="80" height="100"> Sữa bột cho mèo con </a></p>
+					<p><a href="#"><img src="../images/11.jpg" width="80" height="100"> Bánh thưởng cho chó vị thịt gà dạng que</a></p>
+					<p><a href="#"><img src="../images/09.jpg" width="80" height="100"> Súp thưởng cho mèo vị cá hồi </a></p>
+					<p><a href="#"><img src="../images/14.jpg" width="80" height="100"> Bánh thưởng cho mèo làm sạch răng </a></p>
+					<p><a href="#"><img src="../images/15.jpg" width="80" height="100"> Dầu tắm cho mèo chiết xuất chè xanh </a></p>
+					<p><a href="#"><img src="../images/16.jpg" width="80" height="100"> Bánh thưởng cho mèo vị cá hồi và phô mai </a></p>
+					<p><a href="#"><img src="../images/17.jpg" width="80" height="100"> Thuốc dưỡng trị rụng lông cho chó mèo </a></p>
+			</marquee>
+				
+			<p><b> LIÊN KẾT WEBSITE</b></p>
+				<select onchange="windown.open(this.option[this.selectedIndex].value,'_blank')">
+					<option selected>--- Chọn trang liên kết ---</option>
+					<option value="https://dogparadise.vn/"> Dogparadise </option>
+							
+			    </select>
+					
+			<p><b> THỐNG KÊ TRUY CẬP </b></p>
+			<h4><b> Tổng truy cập: 205 </b></h4>
+			<h4><b> Đang online: 10 </b></h4>
+	    </div>
+	  </aside>
+		</article>
+		
+	</div>
+	<footer>
+		<p> ©2021 - ShopOnLine. Allright Reserved</p>
+		<p>Website được phát triển để sử dụng làm bài tập thực hành môn thiết kế và lập trình Web</p>
+		<p>Email: petshop@gmail.com</p>
+	</footer>
+</body>
+</html>

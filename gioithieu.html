@@ -1,0 +1,277 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/baicuoiki.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>ShopOnLine</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+	<script type="text/javascript">
+//<![CDATA[
+var pictureSrc ="https://1.bp.blogspot.com/-CXx9jt2JMRk/Vq-Lh5fm88I/AAAAAAAASwo/XivooDn_oSY/s1600/hoamai.png"; //the location of the snowflakes
+var pictureWidth = 15; //the width of the snowflakes
+var pictureHeight = 15; //the height of the snowflakes
+var numFlakes = 10; //the number of snowflakes
+var downSpeed = 0.01; //the falling speed of snowflakes (portion of screen per 100 ms)
+var lrFlakes = 10; //the speed that the snowflakes should swing from side to side
+
+
+if( typeof( numFlakes ) != 'number' || Math.round( numFlakes ) != numFlakes || numFlakes < 1 ) { numFlakes = 10; }
+
+//draw the snowflakes
+for( var x = 0; x < numFlakes; x++ ) {
+if( document.layers ) { //releave NS4 bug
+document.write('<layer id="snFlkDiv'+x+'"><imgsrc="'+pictureSrc+'" height="'+pictureHeight+'"width="'+pictureWidth+'" alt="*" border="0"></layer>');
+} else {
+document.write('<div style="position:absolute; z-index:9999;"id="snFlkDiv'+x+'"><img src="'+pictureSrc+'"height="'+pictureHeight+'" width="'+pictureWidth+'" alt="*"border="0"></div>');
+}
+}
+
+//calculate initial positions (in portions of browser window size)
+var xcoords = new Array(), ycoords = new Array(), snFlkTemp;
+for( var x = 0; x < numFlakes; x++ ) {
+xcoords[x] = ( x + 1 ) / ( numFlakes + 1 );
+do { snFlkTemp = Math.round( ( numFlakes - 1 ) * Math.random() );
+} while( typeof( ycoords[snFlkTemp] ) == 'number' );
+ycoords[snFlkTemp] = x / numFlakes;
+}
+
+//now animate
+function flakeFall() {
+if( !getRefToDivNest('snFlkDiv0') ) { return; }
+var scrWidth = 0, scrHeight = 0, scrollHeight = 0, scrollWidth = 0;
+//find screen settings for all variations. doing this every time allows for resizing and scrolling
+if( typeof( window.innerWidth ) == 'number' ) { scrWidth = window.innerWidth; scrHeight = window.innerHeight; } else {
+if( document.documentElement && (document.documentElement.clientWidth ||document.documentElement.clientHeight ) ) {
+scrWidth = document.documentElement.clientWidth; scrHeight = document.documentElement.clientHeight; } else {
+if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+scrWidth = document.body.clientWidth; scrHeight = document.body.clientHeight; } } }
+if( typeof( window.pageYOffset ) == 'number' ) { scrollHeight = pageYOffset; scrollWidth = pageXOffset; } else {
+if( document.body && ( document.body.scrollLeft ||document.body.scrollTop ) ) { scrollHeight = document.body.scrollTop;scrollWidth = document.body.scrollLeft; } else {
+if(document.documentElement && (document.documentElement.scrollLeft ||document.documentElement.scrollTop ) ) { scrollHeight =document.documentElement.scrollTop; scrollWidth =document.documentElement.scrollLeft; } }
+}
+//move the snowflakes to their new position
+for( var x = 0; x < numFlakes; x++ ) {
+if( ycoords[x] * scrHeight > scrHeight - pictureHeight ) { ycoords[x] = 0; }
+var divRef = getRefToDivNest('snFlkDiv'+x); if( !divRef ) { return; }
+if( divRef.style ) { divRef = divRef.style; } var oPix = document.childNodes ? 'px' : 0;
+divRef.top = ( Math.round( ycoords[x] * scrHeight ) + scrollHeight ) + oPix;
+divRef.left = ( Math.round( ( ( xcoords[x] * scrWidth ) - (pictureWidth / 2 ) ) + ( ( scrWidth / ( ( numFlakes + 1 ) * 4 ) ) * (Math.sin( lrFlakes * ycoords[x] ) - Math.sin( 3 * lrFlakes * ycoords[x]) ) ) ) + scrollWidth ) + oPix;
+ycoords[x] += downSpeed;
+}
+}
+
+//DHTML handlers
+function getRefToDivNest(divName) {
+if( document.layers ) { return document.layers[divName]; } //NS4
+if( document[divName] ) { return document[divName]; } //NS4 also
+if( document.getElementById ) { return document.getElementById(divName); } //DOM (IE5+, NS6+, Mozilla0.9+, Opera)
+if( document.all ) { return document.all[divName]; } //Proprietary DOM - IE4
+return false;
+}
+
+window.setInterval('flakeFall();',100);
+//]]>
+</script>
+</head>
+
+<body>
+	<header>
+		<div id="logo">
+			<a href="#"><img src="images/logo%20(2).png" width="287" height="132"></a>
+		</div>
+	</header>
+	<nav>
+		<div id="subnav">
+			<ul>
+			<li><a href="Trangchu.html">TRANG CHỦ</a></li>
+			<li><a href="gioithieu.html"> GIỚI THIỆU</a></li>
+			<li><a href="dog.html">DOG-CÚN</a></li>
+			<li><a href="cat.html">CAT-MÈO</a></li>
+			<li><a href="lienhe.html">LIÊN HỆ</a></li>
+			<li><a href="DangNhap.html">TÀI KHOẢN</a></li>
+			</ul>
+		
+			<div> 
+				<input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên cần tìm.......">
+				<input type="submit" value="Tìm" title="Tìm">
+			</div>
+		</div>
+	</nav>
+	
+	<aside id="slide">
+		<div class="slide-container">
+			<div class="slide-stage">
+				<marquee direction="right" scrollamount="8" scrolldelay="100" onMouseMove="stop()" onMouseOut="start()">
+					<div class="slile-image"><a href="MPhoMai.html"><img src="images/16.jpg" width="120" height="100"></a></div>
+					<div class="slile-image"><a href="CTPCho.html"><img src="images/02.jpg" width="120" height="100"></a></div>
+					<div class="slile-image"><a href="SuaMeo.html"><img src="images/07.jpg" width="120" height="100"></a></div>
+					
+				</marquee>
+			</div>
+		</div>
+	</aside>
+	
+	<div id="body">
+			<article>
+			<aside id="left">
+				<div>
+						<p><b> Thực Phẩm Cho Chó</b></p>
+						<ul type="square">
+							<li><a href="sua.html"> Sữa </a></li>
+							<li><a href="xuonggam.html"> Xương Gặm </a></li>
+							<li><a href="banhthuong.html"> Bánh Thưởng </a></li>
+							<li><a href="Vitamin&dd.html"> Vitamin và Dinh Dưỡng </a></li>
+						</ul>
+			
+					<p><b> Thực Phẩm Cho Mèo</b></p>
+					<ul type="square">
+						<li><a href="sua.html"> Sữa  </a></li>
+						<li><a href="pate.html"> Patê </a></li>
+						<li><a href="banhthuong.html"> Bánh thưởng </a></li>
+						<li><a href="Vitamin&dd.html"> Vitamin và Dinh Dưỡng </a></li>
+						
+					</ul>
+				</div>
+			
+				<div class="calendar">
+                    <script language="javascript">
+
+                        monthnames = new Array("January", "Februrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+                        var linkcount = 0;
+
+                        function addlink(month, day, href) {
+                            var entry = new Array(3);
+                            entry[0] = month;
+                            entry[1] = day;
+                            entry[2] = href;
+                            this[linkcount++] = entry;
+                        }
+                        Array.prototype.addlink = addlink;
+                        linkdays = new Array();
+                        monthdays = new Array(12);
+                        monthdays[0] = 31;
+                        monthdays[1] = 28;
+                        monthdays[2] = 31;
+                        monthdays[3] = 30;
+                        monthdays[4] = 31;
+                        monthdays[5] = 30;
+                        monthdays[6] = 31;
+                        monthdays[7] = 31;
+                        monthdays[8] = 30;
+                        monthdays[9] = 31;
+                        monthdays[10] = 30;
+                        monthdays[11] = 31;
+                        todayDate = new Date();
+                        thisday = todayDate.getDay();
+                        thismonth = todayDate.getMonth();
+                        thisdate = todayDate.getDate();
+                        thisyear = todayDate.getYear();
+                        thisyear = thisyear % 100;
+                        thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+                        if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) || (thisyear % 400 == 0)) monthdays[1]++;
+                        startspaces = thisdate;
+                        while (startspaces > 7) startspaces -= 7;
+                        startspaces = thisday - startspaces + 1;
+                        if (startspaces < 0) startspaces += 7;
+
+                        document.write("<table border='1'>");
+                        document.write("<tr><td colspan=7 class='monthyear'>" + monthnames[thismonth] + " " + thisyear + "</td></tr>");
+                        document.write("<tr class='weektitle'>");
+                        document.write("<td align= center>Sun</td>");
+                        document.write("<td align= center>Mon</td>");
+                        document.write("<td align= center>Tus</td>");
+                        document.write("<td align= center>Wed</td>");
+                        document.write("<td align= center>Thu</td>");
+                        document.write("<td align= center>Fri</td>");
+                        document.write("<td align= center>Sat</td>");
+                        document.write("</tr>");
+                        document.write("<tr>");
+                        for (s = 0; s < startspaces; s++) {
+                            document.write("<td> </td>");
+                        }
+                        count = 1;
+                        while (count <= monthdays[thismonth]) {
+                            for (b = startspaces; b < 7; b++) {
+                                linktrue = false;
+                                document.write("<td class='weekday'>");
+                                for (c = 0; c < linkdays.length; c++) {
+                                    if (linkdays[c] != null) {
+                                        if ((linkdays[c][0] == thismonth + 1) && (linkdays[c][1] == count)) {
+                                            document.write("<a href=\"" + linkdays[c][2] + "\">");
+                                            linktrue = true;
+                                        }
+                                    }
+                                }
+                                if (count == thisdate) {
+                                    document.write("<font color='FF0000'><strong>");
+                                }
+                                if (count <= monthdays[thismonth]) {
+                                    document.write(count);
+                                }
+                                else {
+                                    document.write(" ");
+                                }
+                                if (count == thisdate) {
+                                    document.write("</strong></font>");
+                                }
+                                if (linktrue)
+                                    document.write("</a>");
+                                document.write("</td>");
+                                count++;
+                            }
+                            document.write("</tr>");
+                            document.write("<tr>");
+                            startspaces = 0;
+                        }
+                        document.write("</table>");
+
+                    </script>
+                </div>
+			</aside>
+				
+			<!-- InstanceBeginEditable name="content" -->
+			<section>
+			  <p> Giới Thiệu </p>
+				<img align="center" src="images/gioithieu.jpg" width="700" height="200">
+				<p>Khi cuộc sống ngày càng bộn bề, áp lực, con người lại có xu hướng chăm nuôi những em thú cưng xinh xắn để bầu bạn, tâm tình. Cũng như chúng ta, những người bạn 4 chân cần có một cuộc sống đầy đủ tiện nghi, hiện đại và quan trọng là một sức khỏe tốt. Tuy nhiên, việc lựa chọn được địa điểm mua các món đồ dùng cho cho chó mèo như thức ăn, quần áo,… có giá thành hợp lý và uy tín lại không phải là điều dễ dàng. Để đáp ứng nhu cầu này, PetShop ra đời với sứ mệnh cung cấp những sản phẩm tốt nhất cho thú cưng nhà bạn.</p>
+		    </section>
+			<!-- InstanceEndEditable -->	
+	<aside id="right">
+		<div>
+				<p><b>SẢN PHẨM BÁN CHẠY </b></p>
+				<marquee direction="up" scrollamount="3" scrolldelay="90" onMouseMove="stop()" onMouseOut="start()">
+					<p><a href="BddC.html"><img src="images/10.jpg" width="80" height="auto"> Bột dinh dưỡng canxi cho chó mèo </a></p>
+					<p><a href="SuaMeo.html"><img src="images/07.jpg" width="80" height="auto"> Sữa bột cho mèo con </a></p>
+					<p><a href="CTSPCho.html"><img src="images/08.jpg" width="80" height="auto"> Xương Gặm vị bò cho chó lớn</a></p>
+					<p><a href="ctsomeo.html"><img src="images/09.jpg" width="80" height="auto"> Súp thưởng cho mèo vị cá hồi </a></p>
+					<p><a href="MSachRang.html"><img src="images/14.jpg" width="80" height="auto"> Bánh thưởng cho mèo làm sạch răng </a></p>
+					<p><a href="DauTAm.html"><img src="images/15.jpg" width="80" height="auto"> Dầu tắm cho mèo chiết xuất chè xanh </a></p>
+					<p><a href="MPhoMai.html"><img src="images/16.jpg" width="80" height="auto"> Bánh thưởng cho mèo vị cá hồi và phô mai </a></p>
+					<p><a href="ThuocC.html"><img src="images/17.jpg" width="80" height="auto"> Thuốc dưỡng trị rụng lông cho chó mèo </a></p>
+			</marquee>
+			
+			<p><b> LIÊN KẾT WEBSITE</b></p>
+				<select onchange="windown.open(this.option[this.selectedIndex].value,'_blank')">
+					<option selected>--- Chọn trang liên kết ---</option>
+					<option value="https://dogparadise.vn/"> Dogparadise </option>
+							
+			    </select>
+					
+			<p><b> THỐNG KÊ TRUY CẬP </b></p>
+			<h4><b> Tổng truy cập: 205 </b></h4>
+			<h4><b> Đang online: 10 </b></h4>
+	    </div>
+	  </aside>
+		</article>
+		
+	</div>
+	<footer>
+		<p> ©2021 - ShopOnLine. Allright Reserved</p>
+		<p>Website được phát triển để sử dụng làm bài tập thực hành môn thiết kế và lập trình Web</p>
+		<p>Email: petshop@gmail.com</p>
+	</footer>
+</body>
+<!-- InstanceEnd --></html>
